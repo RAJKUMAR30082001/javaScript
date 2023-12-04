@@ -6,19 +6,66 @@
   <title>cab fare</title>
 </head>
 <body>
-
+<form  id="form" action="">
 <label for="productType">Select riding Type:</label>
 <select id="productType" name="productType">
-  <option value="mini">Mini</option>
-  <option value="macro">Macro</option>
-  <option value="prime">Prime</option>
+  <option value="mini">Mini Rs.15/km</option>
+  <option value="macro">Macro Rs.10/km</option>
+  <option value="prime">Prime Rs.20/km</option>
 </select>
-<input id="kilo" type="text" placeholder="enter the total km">
+<br>
+<br>
+<input id="kilo" type="text" placeholder="enter the total km" name="input">
+<h4>if first ride 20% discount</h4>
+<label for="yes">yes</label>
+<input type="radio" id="agree"  value="yes" required>
+<label for="no">no</label>
+<input type="radio" id="agree" value="no" required>
+<br>
+<br>
+<button type='button'id="btn" onclick="console2()">enter</button>
+
+
+</form>
+<div class="amount">
+    <p>total amount : </p><span id="final"></span>
+</div>
 
 
 <script>
-    const input=document.querySelector("#kilo")
-    console.log(input.value)
+     const input=document.querySelector("#form")
+
+
+    function console2(){
+        const type=document.getElementById("productType")
+        // console.log(type.value)
+        const val=document.getElementById("agree")
+        // console.log(val.value)
+        const km=document.getElementById("kilo")
+        let totamount=0
+        switch(type.value){
+            case 'mini':
+                totamount=km.value*15
+                break
+            case 'macro':
+                totamount=km.value*10
+                break
+            case 'prime':
+                totamount=km.value*20
+                break
+            default:
+                alert("enter correct choice")
+
+
+        }
+        if (val.value==="yes"){
+            totamount-=totamount*0.20
+        }
+      const final=document.getElementById("final")
+      final.innerHTML=`${totamount}`
+
+    }
+    
 </script>
 </body>
 </html>
