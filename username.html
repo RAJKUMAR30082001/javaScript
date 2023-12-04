@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check username</title>
+</head>
+<body>
+    <h1>check valid username or not</h1>
+    <input type="text" id="valid" placeholder="enter username">
+    <button id="btn">click to check</button>
+
+
+    <script>
+        const val=document.getElementById("valid")
+        const btn=document.getElementById("btn")
+
+        btn.addEventListener("click",()=>{
+            if (4<val.value.length && val.value.length<16){
+                const regex=/^[a-zA-Z_.0-9]+$/
+                if(regex.test(val.value))
+                alert("valid username")
+                else
+                alert("invalid username")
+
+            }
+            else
+            alert("enter valid username")
+        })
+    </script>
+</body>
+</html>
