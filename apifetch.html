@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>click to get programming jokes</h1>
+    <button onclick="getJoke()">Get Joke!</button>
+    <div class="joke">
+
+    </div>
+</body>
+<script>
+function getJoke(){
+fetch('https://official-joke-api.appspot.com/jokes/programming/random')
+.then(val => val.json())
+.then(val => {
+    let jokes=val[0].setup
+    let ans=val[0].punchline
+    document.querySelector('.joke').innerHTML=`${jokes} ${ans}`;
+
+})
+}
+</script>
+</html>
