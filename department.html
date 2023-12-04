@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student details</title>
+</head>
+<body>
+    <h1>student names info</h1>
+    <select name="department" id="dept">
+        <option value="mca">MCA</option>
+        <option value="ece">ECE</option>
+        <option value="eee">EEE</option>
+        <option value="mech">MECHANICAL</option>
+    </select>
+    <button id="btn">submit</button>
+    <h4>student list</h4>
+    <div class="details">
+
+    </div>
+
+    <script>
+        const info=document.getElementById("dept")
+        const btn=document.getElementById("btn")
+        let stu_info={
+            mca:['raj','kumar','raina'],
+            ece:['sai','ram', 'krishna'],
+            eee:['john','mark','jack'],
+            mech:['bob','tim','joan']
+        }
+        btn.addEventListener('click',()=>{
+        let val=info.value
+        let student=stu_info[`${val}`]
+        for (let i of student){
+            document.querySelector('.details').innerHTML +=`<p>${i}</p>`;
+        }
+    })
+    </script>
+
+</body>
+</html>
