@@ -16,10 +16,12 @@
     <button id="btn">submit</button>
     <h4>student list</h4>
     <div class="details">
-
+       
     </div>
 
     <script>
+        // document.querySelector('.details').innerHTML =" "\
+        
         const info=document.getElementById("dept")
         const btn=document.getElementById("btn")
         let stu_info={
@@ -29,6 +31,11 @@
             mech:['bob','tim','joan']
         }
         btn.addEventListener('click',()=>{
+        const para=document.querySelector('.details')
+        // const paragraph=para.getElementsByTagName("p")
+        while (para.firstChild) {
+            para.removeChild(para.firstChild);
+        }
         let val=info.value
         let student=stu_info[`${val}`]
         for (let i of student){
