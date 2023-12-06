@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session storage</title>
+</head>
+<body>
+    <script>
+        // store data in sessionStorage 
+
+        sessionStorage.setItem('userName', 'raj')
+        sessionStorage.setItem('userId', '2001')
+
+        // retrive data from sessionStorage
+
+        const userName = sessionStorage.getItem("userName")
+        let userId = sessionStorage.getItem("userId")
+
+        console.log("userName : " + userName)
+        console.log("userId : " + userId) 
+        
+        // convert userId string to number
+
+        userId = Number(userId)
+        console.log("userId to Number : " + typeof(userId) + userId)
+
+        // short syntax to get data from local storage
+
+        const userName1 = sessionStorage.userName
+        const userId1 = sessionStorage.userId
+
+       
+
+        // remove an item from sessionStorage
+
+        const key = 'userName'
+
+        sessionStorage.removeItem(key)
+
+        console.log("After removing username "+sessionStorage.userName)
+
+        // remove all item from sessionStorage
+
+        sessionStorage.clear()
+        console.log("After removing all " + sessionStorage.userId)
+
+    </script>
+</body>
+</html>
