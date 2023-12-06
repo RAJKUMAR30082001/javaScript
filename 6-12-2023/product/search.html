@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        .show{
+            color:black;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productNameInput" name="productName" required>
+
+        <!-- Add more fields as needed -->
+
+        <button type="button" onclick="search()">Submit</button>
+    </form>
+    <br>
+    <div class="show"></div>
+    <a href="index.html" style="text-decoration: none;">Home</a>
+
+    <script>
+        const productNameInput = document.getElementById("productNameInput");
+        const showDiv = document.querySelector(".show");
+
+        function search() {
+            // Clear the content of the div
+            showDiv.innerHTML = "";
+
+            let productName = productNameInput.value;
+            let val = localStorage.getItem('details');
+            val = JSON.parse(val);
+            
+            let flag = true;
+
+            for (let i of val) {
+                if (i.name === productName) {
+                    showDiv.innerHTML += `<p>product name= ${i.name}</p>`;
+                    showDiv.innerHTML += `<p>product price= ${i.price}</p>`;
+                    showDiv.innerHTML += `<p>product type= ${i.type}</p>`;
+                    flag = false;
+                }
+            }
+
+            if (flag) {
+                alert(`${productName} not found`);
+            }
+        }
+    </script>
+</body>
+</html>
